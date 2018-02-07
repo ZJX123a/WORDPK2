@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta content="text/html" charset="UTF-8">
+<script>
+function loadXMLDoc()
+{
+var eleAppend = document.getElementById("myDiv");
+window.URL = window.URL||window.webkitURL;
+var xhr;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xhr=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xhr=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+var url ="http://localhost:8080/superSSH/UserAction?id=4";
+//var url ="1.jpg";
+xhr.open("POST",url,true);
+xhr.responseType="arraybuffer";
+xhr.onreadystatechange=function()
+  {
+  if (xhr.readyState==4 && xhr.status==200)
+    {
+	  alert("server active");
+	var blob = new Blob([xhr.response],{type:'image/blob'});
+	var img = document.createElement("img");
+	img.onload = function(e){
+		window.URL.revokeObjectURL(img.src);
+}
+
+	img.src = window.URL.createObjectURL(blob);
+	eleAppend.appendChild(img);
+    }
+}
+
+xhr.send();
+}
+</script>
+</head>
+<body>
+
+<h2>AJAX</h2>
+<button type="button" onclick="loadXMLDoc()">Request data</button><br/>
+<div id="myDiv"></div>
+
+</body>

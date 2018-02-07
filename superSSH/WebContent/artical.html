@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{margin: 0;}
+#nav{
+	margin: 30px;
+	width: 250px;
+	height: 100%;
+	//border: 1px solid red;
+}
+button{
+	cursor: pointers;
+}
+#myDiv{
+	margin-left: 300px;
+	width: 1000px;
+	height: 500px;
+	//border: 1px solid red;
+}
+</style>
+<script>
+function loadXMLDoc()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+}
+var url ="http://139.199.4.114:8080/superSSH/UserAction?id=2";
+xmlhttp.open("GET",url,true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body>
+
+<div id="nav">
+<button type="button" onclick="loadXMLDoc()">getlinuxTitle</button>
+<div id="myDiv"></div>
+</div>
+
+
+</body>
+</html>
