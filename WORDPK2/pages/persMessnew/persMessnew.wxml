@@ -25,13 +25,13 @@
       
     </view>
        <input type="hidden" disabled="true" name="ifn" /> 
-
+      <input type="hidden" disabled="true" name="wechatID" /> 
     <view class="btn-area" style="height: 75px;flex-direction:colomn">
       <view style='flex-direction:row'>
-        <button formType="submit" style="width: 80px;background-color:#fbf9fe">Submit</button>
+        <button formType="submit" style="width: 80px;background-color:#fbf9fe">提交</button>
       </view>
       <view style='flex-direction:row'>
-      <button formType="reset" style="width:80px;background-color:#fbf9fe">Reset</button>
+      <button formType="reset" style="width:80px;background-color:#fbf9fe">重置</button>
       </view>
     </view>
   </view>

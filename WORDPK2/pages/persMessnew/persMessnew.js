@@ -1,3 +1,4 @@
+
 Page({
   data: {
     // text:"这是一个页面"  
@@ -15,7 +16,16 @@ Page({
     })
   },  
   formSubmit: function (e) {
+    wx.getStorage({
+      key: 'wechatID',
+      success: function (res) {
+        e.detail.value.wechatID = res.data
+        console.log(res.data)
+      }
+    })
+
     e.detail.value.ifn='true'
+   
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var valuen = e.detail.value.nconnection;
    if (valuen.length <11) {
@@ -24,14 +34,6 @@ Page({
       })
       //   return false;
     }
-    /*
-    if (valuen.length != 11) {
-      wx.showToast({
-        title: '手机号长度有误！',
-
-      })
-    }
-    */
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
     if (!myreg.test(valuen)) {
       wx.showToast({
@@ -52,7 +54,8 @@ Page({
   formReset: function () {
     console.log('form发生了reset事件')
   },
-  validatemobile: function (e) {
-  
-  }
+
 })
+//this.setopenid({
+//detail:wechatID
+//})
