@@ -1,9 +1,11 @@
 {
   "pages":[
+    
     "pages/index/index",
     "pages/logs/logs",
     "pages/persMessold/persMessold",
-    "pages/persMessnew/persMessnew"
+    "pages/persMessnew/persMessnew",
+    "pages/login/login"
   ],
   "window":{
     "backgroundTextStyle":"light",

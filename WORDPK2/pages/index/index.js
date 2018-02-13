@@ -66,11 +66,6 @@ Page({
       hasUserInfo: true
     })
   },
-  nextPage: function () {
-    wx.navigateTo({
-      url: '../persMess/persMess'
-    })
-  },
  oldPage:function(){
    wx.navigateTo({
      url: '../persMessold/persMessold',

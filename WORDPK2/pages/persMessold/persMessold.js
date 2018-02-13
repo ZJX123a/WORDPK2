@@ -23,31 +23,48 @@ Page({
     })
   },
   formSubmit: function (e) {
-    e.detail.value.ifn = 'false'
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    var valuen = e.detail.value.nconnection;
-    if (valuen.length < 11) {
-      wx.showToast({
-        title: '手机号有误！',
-      })
-      //   return false;
-    }
-    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
-    if (!myreg.test(valuen)) {
-      wx.showToast({
-        title: '手机号有误！',
-      })
-    }
-    wx.request({
-      url: 'http://localhost:8080/superSSH/userInfoAction/test.action',
-      data: e.detail.value,
-      header: {
-        'Content-Type': 'application/json'
-      },
+    /*wx.getStorageSync({
+      key: 'wechatID',
       success: function (res) {
+        e.detail.value.wechatID = res.data
         console.log(res.data)
       }
-    })
+    })*/
+    e.detail.value.wechatID = wx.getStorageSync('wechatID')
+    e.detail.value.ifn = 'true'
+
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    var valuen = e.detail.value.nconnection;
+    var usernamen = e.detail.value.username;
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    var reg = /^[\u4E00-\u9FA5]+$/; 
+    if (!myreg.test(valuen) || valuen.length < 11 || usernamen.length == 0) {
+      if (!myreg.test(valuen) || valuen.length < 11) {
+        wx.showToast({
+          title: '手机号有误！',
+        })
+      }
+      if (!reg.test(usernamen)) {
+        wx.showToast({
+          title: '请输入中文！',
+        })
+      }
+     
+    } else {
+      wx.request({
+        url: 'http://localhost:8080/superSSH/userInfoAction/test.action',
+        data: e.detail.value,
+        header: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          console.log("following.....")
+          console.log(e.detail.value)
+        }
+      })
+    }
+
+
   },
   formReset: function () {
     console.log('form发生了reset事件')
