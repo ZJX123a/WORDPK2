@@ -14,8 +14,9 @@ public class userInfo implements Serializable{
 	private String nconnection;
 	private boolean ifn;
 	private String wechatID;
+
 	public userInfo() {}
-	public userInfo(int id,String username,String usergrade,String userclass,String nschool,String ngrade,String nconnection,boolean ifn,String wechatID) {
+	public userInfo(String username,String usergrade,String userclass,String nschool,String ngrade,String nconnection,boolean ifn,String wechatID) {
 		this.username = username;
 		this.usergrade = usergrade;
 		this.userclass = userclass;
@@ -24,6 +25,7 @@ public class userInfo implements Serializable{
 		this.nconnection = nconnection;
 		this.ifn = ifn;
 		this.wechatID = wechatID;
+	
 	}
 	public void setId(int id) {
 		this.id = id;
@@ -87,6 +89,6 @@ public class userInfo implements Serializable{
 	public String getWechatID() {
 		return wechatID;
 	}
-	
+
 	
 }

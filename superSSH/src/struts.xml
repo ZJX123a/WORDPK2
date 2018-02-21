@@ -12,6 +12,8 @@
 		</action>
 		<action name = "test" class="userInfoAction" method = "test">
 		</action>
+		<action name = "queryUserInfo" class="userInfoAction" method = "queryUserInfo">
+		</action>
 	</package>
 	
 	

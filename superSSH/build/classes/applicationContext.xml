@@ -9,13 +9,13 @@
 		<!-- 指定连接数据库的驱动 -->
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<!-- 指定连接数据库的URL -->
-		  <!--<property name="url" value="jdbc:mysql://139.199.4.114:3306/test" />-->
-		<property name="url" value="jdbc:mysql://139.199.4.114:3306/test?useUnicode=true&amp;characterEncoding=utf-8" />
+		  <!--<property name="url" value="jdbc:mysql://139.199.4.114:3306/test"    112.37.146.190/>-->
+		<property name="url" value="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8" />
 		<!-- 指定连接数据库的用户名 -->
 		
 		<property name="username" value="root" />
 		<!-- 指定连接数据库的密码 -->
-		<property name="password" value="redhat" />
+		<property name="password" value="123456" />
 
 	</bean>
 	<!-- 配置SessionFactory -->

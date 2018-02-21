@@ -10,7 +10,12 @@ public class userInfoServiceImpl implements userInfoService{
 		 this.uid.setUserInfoD(userInfo);
 	}
 	
+	public int queryUserInfoS(String weChatID) {
+		return uid.queryUserInfoD(weChatID);
+	}
+	
 	public void setUserInfoDao(userInfoDao uid) {
 		this.uid = uid;
 	}
+	
 }

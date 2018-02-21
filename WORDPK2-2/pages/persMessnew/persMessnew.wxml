@@ -1,0 +1,39 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <view class="flex-wrp" style="height: 75px;flex-direction:column;">
+      姓名：  <input name="username" placeholder="请输入姓名" />
+    </view>
+    <view class="flex-wrp" style="height: 75px;flex-direction:column;"> 
+      学校：<input name="nschool" placeholder="请输入学校" />
+    </view>
+<view>  
+    <!-- <input type="hidden" disabled="true" name="wechatID" />     -->              
+                    </view> 
+ <view class="section">  
+            <view class="section__title">年级:</view>  
+            <view class='form-group'>  
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">  
+                    <view class="picker">  
+                        <input type="hidden" disabled="true" name="ngrade" value="{{array[index]}}"/>  
+                      
+                    </view>  
+                </picker>  
+            </view>  
+        </view>  
+
+    <view class="flex-wrp" style="height: 75px;flex-direction:column;">
+      联系方式：<input name="nconnection" bindinput="validatemobile" type='number' maxlength='11' placeholder="请输入联系方式" style=""/>
+      
+    </view>
+       <input type="hidden" disabled="true" name="ifn" /> 
+
+    <view class="btn-area" style="height: 75px;flex-direction:colomn">
+      <view style='flex-direction:row'>
+        <button formType="submit" style="width: 80px;background-color:#fbf9fe">提交信息</button>
+      </view>
+      <view style='flex-direction:row'>
+      <button formType="reset" style="width:80px;background-color:#fbf9fe">重置信息</button>
+      </view>
+    </view>
+  </view>
+</form>
