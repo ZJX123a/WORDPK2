@@ -23,7 +23,7 @@ Page({
     })
   },
   formSubmit: function (e) {
-    e.detail.value.wechatID = wx.getStorageSync("wechatID")
+    e.detail.value.wechatID = wx.getStorageSync('wechatIDA')
     e.detail.value.ifn = 'false'
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var valuen = e.detail.value.nconnection;
@@ -46,35 +46,14 @@ Page({
     } 
     else {
       wx.request({
-        url: 'http://139.199.4.114:8080/superSSH/userInfoAction/test.action',
+        url: 'http://localhost:8080/superSSH/userInfoAction/test.action',
         data: e.detail.value,
         header: {
           'Content-Type': 'application/json;charset=utf-8'
-
         },
         success: function (res) {
           console.log("following.....")
-          //console.log(e.detail.value)
-          wx.request({
-            url: 'http://139.199.4.114:8080/superSSH/userInfoAction/queryUserInfo.action',
-            data: {
-              //wechatID: wx.getStorageSync('wechatID')
-              //wechatID: 'test'
-            },
-            header: {
-              "content-type": "application/x-www-form-urlencoded;charset=utf-8"
-            },
-            method: 'GET',
-            success: function (res) {
-
-              console.log("用户已注册" + res.data)
-              // wx.getUserInfo()
-              wx.redirectTo({
-                url: '../problem/problem',
-              })
-
-            }
-          })
+          console.log("插入成功！")
         }
       })
     }
